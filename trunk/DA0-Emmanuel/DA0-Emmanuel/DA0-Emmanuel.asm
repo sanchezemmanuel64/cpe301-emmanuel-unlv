@@ -3,6 +3,9 @@
  *
  *  Created: 2/8/2015 3:42:44 PM
  *   Author: Emmanuel
+
+ Write an assembly code to add five random numbers >30 and <60. If the sum
+ produces an overflow set PORTB.2 pin = HIGH else PORTB.2 pin = LOW.
  */ 
 
 	LDI R20, 48				;load 1st number
