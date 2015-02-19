@@ -8,6 +8,8 @@
  produces an overflow set PORTB.2 pin = HIGH else PORTB.2 pin = LOW.
  */ 
 
+	SBI DDRB, 2				;set portb pin2 as output
+
 	LDI R20, 48				;load 1st number
 	LDI R21, 59				;load 2nd number
 	ADD R20, R21			;add first 2 numbers. R20 = sum
