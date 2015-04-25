@@ -8,7 +8,6 @@ CPE 301 - DA4 RGB LED changing colors using PWM
 #include <util/delay.h> //needed for delay
 
 void pwm_init();	//initialize PWM channels
-void setDC10();		//set R, G, B channels to 10% DC
 
 int main(void)
 {	
