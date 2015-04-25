@@ -1,9 +1,9 @@
 /*
 Emmanuel Sanchez
-CPE 301 - DA4
+CPE 301 - DA4 RGB LED changing colors using PWM
  */ 
 
-#define F_CPU 16000000UL
+#define F_CPU 16000000UL //define clock frequency
 #include <avr/io.h>
 #include <util/delay.h>
 
@@ -16,61 +16,70 @@ int main(void)
 		
 	//set R, G, B channels to 10% DC
 	OCR0A = 0x19;	//note: 0x19 = FF * 10%
-	OCR1A = 0x19;
-	OCR2A = 0x19;
+	OCR1A = 0x19;	//note: 0x19 = FF * 10%
+	OCR2A = 0x19;	//note: 0x19 = FF * 10%
 	
     while(1)
     {
-		//note: 0xE6 = FF * 90% 
+		//note: 0xE6 = 90% DC
 		while(OCR0A < 0xE6){	//r fade in
-			OCR0A += 0xF;
+			OCR0A += 0xF;		//increment DC
 			_delay_ms(50);
 		}
 
+		//note: 0xE6 = 90% DC
 		while(OCR1A < 0xE6){	//g fade in
-			OCR1A += 0xF;
+			OCR1A += 0xF;		//increment DC
 			_delay_ms(50);
 		}
 
+		//note: 0xE6 = 90% DC
 		while(OCR2A < 0xE6){	//b fade in
-			OCR2A += 0xF;
+			OCR2A += 0xF;		//increment DC
 			_delay_ms(50);
 		}
 
+		//note: 0x19 = 10% DC
 		while(OCR0A > 0x19){	// r fade out
-			OCR0A -= 0xF;
+			OCR0A -= 0xF;		//decrement DC
 			_delay_ms(50);
 		}
 		
+		//note: 0x19 = 10% DC
 		while(OCR2A > 0x19){	// b fade out
-			OCR2A -= 0xF;
-			_delay_ms(50);
+			OCR2A -= 0xF;		//decrement DC
+			_delay_ms(50);	
 		}
 		
+		//note: 0xE6 = 90% DC
 		while(OCR0A < 0xE6){	// r and b fade in
-			OCR0A += 0xF;
-			OCR2A += 0xF;
+			OCR0A += 0xF;		//increment red DC
+			OCR2A += 0xF;		//increment blue DC
 			_delay_ms(50);
 		}
 		
+		//note: 0x19 = 10% DC
 		while(OCR1A > 0x19){	//g fade out
-			OCR1A -= 0xF;
+			OCR1A -= 0xF;		//decrement DC
 			_delay_ms(50);
 		}
 		
+		//note: 0x19 = 10% DC
 		while(OCR0A > 0x19){	// r fade out
-			OCR0A -= 0xF;
+			OCR0A -= 0xF;		//decrement DC
 			_delay_ms(50);
 		}
 		
+		//note: 0x19 = 10% DC
 		while(OCR2A > 0x19){	// b fade out
-			OCR2A -= 0xF;
+			OCR2A -= 0xF;		//decrement DC
 			_delay_ms(50);
 		}
 	}
 }
 
-void pwm_init(){
+//initialize PWMs
+void pwm_init(){ 
 	//3 PWM channel outputs
 	DDRD |= (1<<PD6); //R OC0A
 	DDRB |= (1<<PB1); //G 0C1A
