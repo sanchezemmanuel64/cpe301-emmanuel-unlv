@@ -5,7 +5,7 @@ CPE 301 - DA4 RGB LED changing colors using PWM
 
 #define F_CPU 16000000UL //define clock frequency
 #include <avr/io.h>
-#include <util/delay.h>
+#include <util/delay.h> //needed for delay
 
 void pwm_init();	//initialize PWM channels
 void setDC10();		//set R, G, B channels to 10% DC
@@ -92,12 +92,12 @@ void pwm_init(){
 	TCCR1B |= (1<<WGM12);				//timer 1
 	
 	//clear mode
-	TCCR0A |= (1<<COM0A1);
-	TCCR1A |= (1<<COM1A1);
-	TCCR2A |= (1<<COM2A1);
+	TCCR0A |= (1<<COM0A1);	//timer 0
+	TCCR1A |= (1<<COM1A1);	//timer	1
+	TCCR2A |= (1<<COM2A1);	//timer 2
 	
 	//set clock, no prescaler
-	TCCR0B |= (1<<CS00);	
-	TCCR1B |= (1<<CS10);	
-	TCCR2B |= (1<<CS20);
+	TCCR0B |= (1<<CS00);	//timer 0
+	TCCR1B |= (1<<CS10);	//timer 1
+	TCCR2B |= (1<<CS20);	//timer 2
 }
