@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "DA5_dc", "DA5_dc\DA5_dc.cproj", "{EADA2047-34A8-47B8-8464-AE8B5561A6DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EADA2047-34A8-47B8-8464-AE8B5561A6DA}.Debug|AVR.ActiveCfg = Debug|AVR
+		{EADA2047-34A8-47B8-8464-AE8B5561A6DA}.Debug|AVR.Build.0 = Debug|AVR
+		{EADA2047-34A8-47B8-8464-AE8B5561A6DA}.Release|AVR.ActiveCfg = Release|AVR
+		{EADA2047-34A8-47B8-8464-AE8B5561A6DA}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
